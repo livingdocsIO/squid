@@ -1,0 +1,37 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: plugins/docker
+  settings:
+    dry_run: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: livingdocs/squid
+    tags: [latest]
+
+- name: publish
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: livingdocs/squid
+    tags: [latest]
+
+  when:
+    branch: [master]
+
+trigger:
+  event: [push]
+
+---
+kind: signature
+hmac: 71ad4461e6729d413dccd42287997b3122afeff2565068e0b92cd5b0d5a830bc
+
+...
