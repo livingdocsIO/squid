@@ -24,5 +24,5 @@ HTTP_PROXY=http://localhost:3128 HTTPS_PROXY=http://localhost:3128 yourscript
 
 With curl
 ```bash
-HTTP_PROXY=http://localhost:3128 HTTPS_PROXY=http://localhost:3128 curl -i https://api.ipify.org?format=json
+curl -x http://localhost:3128 -i https://api.ipify.org?format=json
 ```
