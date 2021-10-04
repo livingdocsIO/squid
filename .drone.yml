@@ -22,7 +22,7 @@ steps:
     password:
       from_secret: docker_password
     repo: livingdocs/squid
-    tags: [latest]
+    tags: [latest, 5.1]
 
   when:
     branch: [master]
@@ -32,6 +32,6 @@ trigger:
 
 ---
 kind: signature
-hmac: 71ad4461e6729d413dccd42287997b3122afeff2565068e0b92cd5b0d5a830bc
+hmac: 519011b7856b47db0ec5a885825fff5101047b09cc50f30b10aed9af47f1d70c
 
 ...
